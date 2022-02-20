@@ -2,11 +2,13 @@ package com.myjavaarena.programs;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class StreamFilter {
     public static void main(String[] args) {
+        Predicate<String> filter = (val) -> val.length() == 6;
         List<String> stringValues = List.of("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
-        stringValues.stream().filter(val -> val.length() == 6).forEach(System.out::println);
+        stringValues.stream().filter(filter).forEach(System.out::println);
         System.out.println("");
         stringValues.stream().filter(val -> val.startsWith("T")).forEach(System.out::println);
         System.out.println("");
@@ -19,4 +21,5 @@ public class StreamFilter {
         System.out.println("");
 
     }
+
 }
